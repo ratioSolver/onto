@@ -9,7 +9,8 @@ if(NOT TARGET json)
     add_subdirectory(extern/json)
 endif()
 
-add_library(onto src/ontology.cpp)
+add_library(onto src/description.cpp)
+target_link_libraries(onto PUBLIC json)
 target_include_directories(onto PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
 
 if(BUILD_TESTING)
